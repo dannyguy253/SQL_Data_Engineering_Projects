@@ -11,4 +11,3 @@ FROM job_postings_fact;
 SELECT DISTINCT job_country
 FROM job_postings_fact;
 
--- this is a change to practice git pull
