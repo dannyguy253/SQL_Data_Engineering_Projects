@@ -7,5 +7,6 @@ LIMIT 20;
 SELECT DISTINCT job_title_short
 FROM job_postings_fact;
 
+-- this is to highlight all countries in the fact table
 SELECT DISTINCT job_country
 FROM job_postings_fact;
