@@ -164,10 +164,11 @@ ORDER BY job_id
 LIMIT 40;
 
 SELECT *
-FROM job_postings_fact AS tgt
+FROM job_postings_fact AS src
 WHERE NOT EXISTS (
     SELECT 1
-    FROM skills_job_dim AS src
+    FROM skills_job_dim AS tgt
     WHERE tgt.job_id = src.job_id
 )
-ORDER BY job_id;
+ORDER BY job_id
+LIMIT 20;
