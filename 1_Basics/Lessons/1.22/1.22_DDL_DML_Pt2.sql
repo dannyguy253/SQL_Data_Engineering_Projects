@@ -1,6 +1,6 @@
 -- .read Lessons/1.22/1.22_DDL_DML_Pt2.sql
 
--- CTAS
+-- CTAS (make job_postings_flat table that combines job_postings_fact with company info as permanent table)
 CREATE OR REPLACE TABLE staging.job_postings_flat AS  
 SELECT
     jpf.job_id,
@@ -26,7 +26,7 @@ LEFT JOIN data_jobs.company_dim AS cd
 SELECT COUNT(*)
 FROM staging.job_postings_flat;
 
--- View
+-- View (Create view based on jpf table just created and priority_lvl table)
 CREATE OR REPLACE VIEW staging.priority_jobs_flat_view AS
 SELECT 
     jpf.*
@@ -53,7 +53,7 @@ FROM senior_jobs_flat_temp
 GROUP BY job_title_short
 ORDER BY job_count DESC;
 
---delete
+--delete (remove records before 2024)
 
 SELECT COUNT(*) FROM staging.job_postings_flat;
 SELECT COUNT(*) FROM staging.priority_jobs_flat_view;
@@ -66,7 +66,7 @@ SELECT COUNT(*) FROM staging.job_postings_flat;
 SELECT COUNT(*) FROM staging.priority_jobs_flat_view;
 SELECT COUNT(*) FROM senior_jobs_flat_temp;
 
---truncate
+--truncate (drop rows but keep schema, insert rows occuring 2024 and after)
 TRUNCATE TABLE staging.job_postings_flat;
 
 INSERT INTO staging.job_postings_flat
