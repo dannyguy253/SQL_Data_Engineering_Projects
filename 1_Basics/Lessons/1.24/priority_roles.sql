@@ -1,4 +1,4 @@
--- .read Lessons/1.24/priority_roles.sql
+-- .read 1_Basics/Lessons/1.24/priority_roles.sql
 
 CREATE OR REPLACE TABLE staging.priority_roles (
     role_id INTEGER PRIMARY KEY,
@@ -8,7 +8,7 @@ CREATE OR REPLACE TABLE staging.priority_roles (
 
 INSERT INTO staging.priority_roles (role_id, role_name, priority_lvl)
 VALUES 
-    (1, 'Data Engineer', 1),
+    (1, 'Data Engineer', 2),
     (2, 'Senior Data Engineer', 1),
     (3, 'Software Engineer', 3);
 
