@@ -1,5 +1,7 @@
 USE company_jobs;
 
+DROP TABLE IF EXISTS job_skill_priorities;
+
 CREATE TABLE IF NOT EXISTS job_skill_priorities (
     job_id INT,
     skill_id INT,
@@ -21,3 +23,7 @@ INNER JOIN staging.priority_skills AS ps
 
 SELECT *
 FROM job_skill_priorities;
+
+SELECT table_schema, table_name
+FROM information_schema.tables
+WHERE table_catalog = 'company_jobs';

@@ -1,6 +1,10 @@
 USE company_jobs;
 
+DROP SCHEMA IF EXISTS staging CASCADE;
+
 CREATE SCHEMA IF NOT EXISTS staging;
+
+DROP TABLE IF EXISTS staging.priority_skills;
 
 CREATE OR REPLACE TABLE staging.priority_skills (
     skill_id INT PRIMARY KEY,
