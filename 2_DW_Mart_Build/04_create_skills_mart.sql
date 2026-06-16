@@ -1,4 +1,4 @@
--- Step 4: <art - Create skills demand mart
+-- Step 4: Mart - Create skills demand mart
 
 DROP SCHEMA IF EXISTS skills_mart CASCADE;
 
